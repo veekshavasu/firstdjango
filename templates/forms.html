@@ -1,0 +1,49 @@
+{% extends 'base/layout.html' %}
+
+
+
+
+
+{% block content %}
+
+
+<p>
+        <h3>
+            {{msg}}
+        </h3>
+    </p>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                {% if forms %}
+                    <form action="" method="POST">
+                            {% for field in forms %}
+                            <div class="form-group">
+                                {{field}}
+                            </div>
+                        {% endfor %}
+
+                        <input type="submit" value="Add book" class="btn btn-outline-primary">
+                    </form>
+                        
+                {%else%}
+                    <p class="text-danger">No Form Available</p>
+                {% endif %}            
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    {% if bk %}
+    {% for b in bk %}
+    {{ b.book_name}}
+    {% endfor %}
+    {% endif %}    
+    </div>
+
+
+
+
+
+{% endblock %}
